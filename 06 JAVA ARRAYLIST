@@ -1,0 +1,63 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args)
+            throws Exception {
+
+        BufferedReader br =
+                new BufferedReader(
+                    new InputStreamReader(System.in));
+
+        int n =
+                Integer.parseInt(br.readLine());
+
+        List<List<Integer>> list =
+                new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+
+            String[] values =
+                    br.readLine().split(" ");
+
+            int d =
+                    Integer.parseInt(values[0]);
+
+            List<Integer> row =
+                    new ArrayList<>();
+
+            for (int j = 1; j <= d; j++) {
+                row.add(
+                    Integer.parseInt(values[j])
+                );
+            }
+
+            list.add(row);
+        }
+
+        int q =
+                Integer.parseInt(br.readLine());
+
+        for (int i = 0; i < q; i++) {
+
+            String[] query =
+                    br.readLine().split(" ");
+
+            int x =
+                    Integer.parseInt(query[0]);
+
+            int y =
+                    Integer.parseInt(query[1]);
+
+            try {
+                System.out.println(
+                    list.get(x - 1).get(y - 1)
+                );
+            }
+            catch (Exception e) {
+                System.out.println("ERROR!");
+            }
+        }
+    }
+}
